@@ -6,7 +6,7 @@
 </head>
 <body>	
 
-	this is our login page.
+	this is our login page
 
 </body>
 </html>
