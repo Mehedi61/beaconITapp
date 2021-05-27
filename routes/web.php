@@ -19,4 +19,11 @@ Route::get('/login', function() {
 
 });
 
-Route::get('/hi', [FirstController::class, 'sayHello']);
+// Route::get('/hi', [FirstController::class, 'sayHello']);
+
+
+Route::get('/calculator', function() {
+    return view('calculator');
+});
+
+Route::post('/calculator', [FirstController::class, 'addNumbers']);
