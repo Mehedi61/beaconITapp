@@ -6,7 +6,8 @@
 </head>
 <body>	
 
-	this is our login page
+	THINK WE SHOULD SMILE MORE OFTEN<br>
+	BY THE WAY THIS IS THE <b>LOGIN PAGE </b>
 
 </body>
 </html>
