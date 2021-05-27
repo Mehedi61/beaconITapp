@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FirstController;
 
 
 // Route::get('/', function () {
@@ -17,3 +18,5 @@ Route::get('/login', function() {
 	return view('login');
 
 });
+
+Route::get('/hi', [FirstController::class, 'sayHello']);
