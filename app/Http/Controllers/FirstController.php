@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class FirstController extends Controller
 {
 
@@ -11,9 +12,11 @@ class FirstController extends Controller
         return $name;
     }
 
+
     public function sayHello() {
 
-        $myName = userName("Mehedi");
+        $myName = $this->userName('Mehedi Hasan');
         echo "Hello " . $myName;
+
     }
 }
