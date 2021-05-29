@@ -13,7 +13,7 @@ class FirstController extends Controller
 
     public function sayHello() {
 
-        $myName = userName("Mehedi");
+        $myName = $this->userName("Mehedi");
         echo "Hello " . $myName;
     }
 }
