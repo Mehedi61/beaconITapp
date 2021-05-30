@@ -9,15 +9,15 @@ use App\Http\Controllers\FirstController;
 // });
 
 
-Route::get('/homepage', function() {
-	return view('home');
-});
+// Route::get('/homepage', function() {
+// 	return view('home');
+// });
 
 
-Route::get('/login', function() {
-	return view('login');
+// Route::get('/login', function() {
+// 	return view('login');
 
-});
+// });
 
 // Route::get('/hi', [FirstController::class, 'sayHello']);
 
