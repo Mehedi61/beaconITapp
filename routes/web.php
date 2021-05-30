@@ -9,14 +9,21 @@ use App\Http\Controllers\FirstController;
 // });
 
 
-Route::get('/homepage', function() {
-	return view('home');
+// Route::get('/homepage', function() {
+// 	return view('home');
+// });
+
+
+// Route::get('/login', function() {
+// 	return view('login');
+
+// });
+
+// Route::get('/hi', [FirstController::class, 'sayHello']);
+
+
+Route::get('/calculator', function() {
+    return view('calculator');
 });
 
-
-Route::get('/login', function() {
-	return view('login');
-
-});
-
-Route::get('/hi', [FirstController::class, 'sayHello']);
+Route::post('/calculator', [FirstController::class, 'addNumbers']);
