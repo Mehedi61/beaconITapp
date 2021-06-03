@@ -2,28 +2,33 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
+use App\Http\Controllers\DataFormController;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
+// // CREATE
+// Route::get('/create', function() {
+//     return view('create');
 // });
+// Route::post('/create', [FirstController::class, 'create']);
 
-
-// Route::get('/homepage', function() {
-// 	return view('home');
+// // READ
+// Route::get('/read', function() {
+//     return view('read');
 // });
+// Route::post('/read', [FirstController::class, 'read']);
 
-
-// Route::get('/login', function() {
-// 	return view('login');
-
+// // UPDATE
+// Route::get('/update', function() {
+//     return view('update');
 // });
+// Route::post('/update', [FirstController::class, 'update']);
 
-// Route::get('/hi', [FirstController::class, 'sayHello']);
 
+// CRUD
 
-Route::get('/calculator', function() {
-    return view('calculator');
+// create operation
+Route::get('/create', function() {
+    return view('dataForm');
 });
 
-Route::post('/calculator', [FirstController::class, 'addNumbers']);
+Route::post('/create', [DataFormController::class, 'create']);
