@@ -3,29 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 
 class FirstController extends Controller
 {
 
-    // public function userName($name) {
-    //     return $name;
-    // }
+    public function create(Request $request) {
+
+        $student = new Student;
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->designation = $request->designation;
+        $student->save();
+    }
 
 
-    // public function sayHello() {
+    public function read(Request $request) {
 
-    //     $myName = $this->userName('Mehedi Hasan');
-    //     echo "Hello " . $myName;
+        $email = $request->email;
+        return Student::where('email', $email)->first();
+    }
 
-    // }
+    public function update(Request $request) {
 
-    public function addNumbers(Request $request) {
-
-        $firstNumber = $request->get('firstNumber');
-        $secondNumber = $request->get('secondNumber');
-
-        $result = $firstNumber + $secondNumber;
-        return $result;
+        $email = $request->email;
+        return Student::where('email', $email)->first();
     }
 }
