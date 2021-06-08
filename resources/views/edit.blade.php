@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
-	<title> Read </title>
+	<title> Edit </title>
 </head>
 <body>
-	<h2> Read </h2>
+	<h2> Edit </h2>
 
 	<form action="" method="POST">
 		@csrf
