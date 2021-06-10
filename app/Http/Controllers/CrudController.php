@@ -27,8 +27,6 @@ class CrudController extends Controller
 
     public function fetchForUpdate(Request $request)
     {
-        // $email = Student::find($request->email);
-        // dd($email);
 
         $email = Student::where('email', $request->email)->first();
         return view('update', ['dataKey' => $email]);
@@ -38,7 +36,7 @@ class CrudController extends Controller
     public function update(Request $request)
     {
         $myData = Student::find($request->id);
-        dd($myData);
+        // dd($myData);
         $myData->name = $request->name;
         $myData->email = $request->email;
         $myData->designation = $request->designation;

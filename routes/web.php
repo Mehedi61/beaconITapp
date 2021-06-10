@@ -20,17 +20,17 @@ Route::get('/read', function(){
 Route::post('/read/',  [CrudController::class, 'read']);
 
 // Update
-// Route::get('/edit', function() {
-//     return view('edit');
-// });
-
-Route::get('/edit/{email}', [CrudController::class, 'fetchForUpdate']);
-Route::post('/edit/{email}', [CrudController::class, 'fetchForUpdate']);
-
-Route::get('update', function() {
-    return view('update');
+Route::get('/edit', function() {
+    return view('edit');
 });
-Route::post('update', [CrudController::class, 'update']);
+
+// Route::get('/edit/{email}', [CrudController::class, 'fetchForUpdate']);
+Route::post('/edit', [CrudController::class, 'fetchForUpdate']);
+
+// Route::get('update', function() {
+//     return view('update');
+// });
+Route::post('/update', [CrudController::class, 'update']);
 
 // Delete
 Route::get('/delete/{id}', [CrudController::class, 'delete']);

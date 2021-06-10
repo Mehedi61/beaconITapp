@@ -5,7 +5,7 @@
 <body>
 	<h2> Update </h2>
 
-	<form action="" method="POST">
+	<form action="/update" method="POST">
 		@csrf
 	  <input type="hidden" name="id" value="{{$dataKey['id']}}"> <br> <br> 
 	  <input type="text" name="name" value="{{$dataKey['name']}}"> <br> <br>
