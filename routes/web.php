@@ -5,6 +5,9 @@ use App\Http\Controllers\FirstController;
 use App\Http\Controllers\CrudController;
 
 
+Route::get('/pagi', [CrudController::class, 'pagination']);
+
+
 // CRUD
 
 // Create

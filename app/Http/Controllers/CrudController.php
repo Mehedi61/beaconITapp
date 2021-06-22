@@ -8,6 +8,13 @@ use App\Models\Student;
 class CrudController extends Controller
 {
 
+    public function pagination()
+    {
+        $myData = new Student;
+        $myAllData = $myData::paginate(1);
+        return view('pagination', ['datas' =>$myAllData]);
+    }
+
     public function create(Request $request)
     {
         $myData = new Student;
