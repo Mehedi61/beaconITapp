@@ -4,15 +4,55 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Cache;
+
+
 
 class CrudController extends Controller
 {
+
+    public function read($id)
+    {
+
+        $cachedUser = Redis::hgetall('user_'.$id);
+
+        if ($cachedUser != null) {
+
+            return view('redisOutput', ['data' => $cachedUser]);
+
+            // return response()->json([
+            //     'status_code' => 201,
+            //     'message' => 'Fetched from redis',
+            //     'data' => $cachedUser,
+            // ]);
+        }
+
+        else {
+
+            $user = Student::find($id);
+            Redis::hmset("user_".$id, [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'designation' => $user->designation
+            ]);
+
+            return view('databaseOutput', ['data' => $user]);
+
+            // return response()->json([
+            //     'status_code' => 201,
+            //     'message' => 'Fetched from database',
+            //     'data' => $user,
+            // ]);
+        }
+    }
 
     public function pagination()
     {
         $myData = new Student;
         $myAllData = $myData::paginate(1);
-        return view('pagination', ['datas' =>$myAllData]);
+        return view('pagination', ['datas' => $myAllData]);
     }
 
     public function create(Request $request)
@@ -55,17 +95,6 @@ class CrudController extends Controller
     {
         $myData = Student::find($id);
         $myData->delete();
-    }
-
-
-    public function read(Request $request)
-    {
-        // $data = Student::find($id);
-
-        $email = $request->email;
-        return Student::where('email', $email)->first();
-        
-
     }
 }
 

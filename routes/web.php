@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\CacheController;
+
+// Cache
+Route::get('getCache/', [CacheController::class, 'fetchCache']);
+
 
 
 Route::get('/pagi', [CrudController::class, 'pagination']);
@@ -17,10 +22,12 @@ Route::get('/create', function() {
 Route::post('/create', [CrudController::class, 'create']);
 
 // Read
-Route::get('/read', function(){
-    return view('read');
-});
-Route::post('/read/',  [CrudController::class, 'read']);
+// Route::get('/read{id}', function(){
+//     return view('read');
+// });
+
+// cache
+Route::get('/read/{id}',  [CrudController::class, 'read']);
 
 // Update
 Route::get('/edit', function() {
