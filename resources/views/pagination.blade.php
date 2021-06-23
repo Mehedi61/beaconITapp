@@ -1,4 +1,4 @@
-<h1>Pagination</h1>
+<h1>pagination</h1>
 
 <table>
 	<tr>
