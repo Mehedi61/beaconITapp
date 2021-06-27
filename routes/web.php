@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\CacheController;
+use App\Http\Controllers\TestJobController;
+
+Route::get('/new', [TestJobController::class, 'runMyJob']);
+
+
+Route::get('/data/{email}', [FirstController::class, 'garbageData']);
 
 // Cache
 Route::get('getCache/', [CacheController::class, 'fetchCache']);

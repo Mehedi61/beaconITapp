@@ -12,8 +12,16 @@ use Illuminate\Support\Facades\Cache;
 class CrudController extends Controller
 {
 
-    public function read($id)
+    public function testJob()
     {
+        echo "Hello from jobs";
+    }
+
+
+    public function read($email)
+    {
+
+        $data = Student::where('email', $email)->get();
 
         $cachedUser = Redis::hgetall('user_'.$id);
 

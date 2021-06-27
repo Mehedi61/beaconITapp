@@ -9,6 +9,13 @@ use App\Models\Student;
 class FirstController extends Controller
 {
 
+
+    public function garbageData($email)
+    {
+        $data = Student::where('email', $email)->first()->id;
+        return $data;
+    }
+
     public function create(Request $request) {
 
         $student = new Student;
