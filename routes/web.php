@@ -1,52 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FirstController;
-use App\Http\Controllers\CrudController;
-use App\Http\Controllers\CacheController;
-use App\Http\Controllers\TestJobController;
 
-Route::get('/new', [TestJobController::class, 'runMyJob']);
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-
-Route::get('/data/{email}', [FirstController::class, 'garbageData']);
-
-// Cache
-Route::get('getCache/', [CacheController::class, 'fetchCache']);
-
-
-
-Route::get('/pagi', [CrudController::class, 'pagination']);
-
-
-// CRUD
-
-// Create
-Route::get('/create', function() {
-    return view('dataForm');
-});
-Route::post('/create', [CrudController::class, 'create']);
-
-// Read
-// Route::get('/read{id}', function(){
-//     return view('read');
-// });
-
-// cache
-Route::get('/read/{id}',  [CrudController::class, 'read']);
-
-// Update
-Route::get('/edit', function() {
-    return view('edit');
+Route::get('/', function () {
+    return view('auth.register');
 });
 
-// Route::get('/edit/{email}', [CrudController::class, 'fetchForUpdate']);
-Route::post('/edit', [CrudController::class, 'fetchForUpdate']);
+Route::get('/login', function () {
+    return view('auth.login');
+});
 
-// Route::get('update', function() {
-//     return view('update');
-// });
-Route::post('/update', [CrudController::class, 'update']);
 
-// Delete
-Route::get('/delete/{id}', [CrudController::class, 'delete']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
